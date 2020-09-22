@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+    <head>
+    <style>
+        .img-container {
+          text-align: center;
+          display: block;
+        }
+      </style>
+      </head>
+   <body>
+      
+    <h1 align='center'>Hi, Welcome to Jessica and Chris's baby voting website!</h1>
+    <p align='center'>Vote whether you think their first child will be a boy or a girl!</p>
+    <p align='center'>Vote by clicking the 'Vote' link in the top left corner.</p>
+    <p align='center'>Please leave your first and last name, followed by 'boy' or 'girl' and a location if you'd like.</p>
+    <p align='center'>Hit submit and see the current results!</p>
+    
+    <div class="img-container">
+    <img src="{{url_for('static', filename='IMG.jpg')}}" width="700" height="1000"/>
+    </div>
+</body>
+</html>
+    {% endblock %}

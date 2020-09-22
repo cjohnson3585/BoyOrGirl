@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <meta charset="utf-8">
+    <style>
+    #myTable1 {
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        font-size: 18px;
+        margin-left: 100px; 
+        margin-right: 100px; 
+        width: 90%;
+      }
+      
+      #myTable1 th  {
+        text-align: left;
+        padding: 12px;
+        background-color: white;
+        width: 100px;
+      }
+      
+      
+      #myTable1 tr {
+        border-bottom: 1px solid #ddd;
+      }
+      
+      #myTable1 tr.header, #myTable tr:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+    </head>
+	<body>
+        <h1 align="center">Hi, Thank you for joing us in this fun BoyOrGirl Voting game!<h1>
+            <h1 align="center">Here are the current results:</h1>
+    <h2 align="center"> Boys: {{bs}} ({{bsp}}%) </h2>
+    <h2 align="center"> Girls: {{gs}} ({{gsp}}%) </h2>
+    <h2 align="center"> Total Votes: {{tots}} </h2>
+
+    <br>
+
+	
+        <br>
+   
+   <table class="table table-hover table-bordered table-sm" id="myTable1" cellspacing="0">
+             <thead>
+            <tr>
+            <th style="width:100px" onclick="sortTable(0)">First Name</th>
+            <th onclick="sortTable(1)">Last Name</th>
+            <th onclick="sortTable(2)">Sex</th>
+            <th onclick="sortTable(3)">Location</th>
+            </tr>
+         </thead>
+    </table>
+     <div id="table-wrapper">
+       <div id="table-scroll">
+          <table class="table table-hover table-bordered table-sm" id="myTable" style='margin-left: 100px; margin-right: 100px; width: 90%;' cellspacing="0">
+
+         {% for result in results %}
+            <tr>
+               <td style="width:100px">{{result["first_name"]}}</td>
+               <td style="width:100px">{{result["last_name"]}}</td>
+               <td style="width:100px">{{result["sex"]}}</td>
+               <td style="width:100px">{{result["location"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+        </div>
+       </div>
+
+    </body>
+</html>
+{% endblock %}
